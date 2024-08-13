@@ -1,0 +1,960 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+html,
+body, #root {
+    height: 100%;
+    margin: 0;
+}
+
+body, #root {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation bar styling */
+nav {
+    background-color: #FFF7ED;
+    display: flex;
+    padding: 1.5em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left > a, .nav-right > a {
+    text-decoration: none;
+}
+
+.home-link {
+    font-weight: bold;
+    color: #000000;
+    font-family: "Inter", sans-serif;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.nav-right > * {
+    color: #4D4D4D;
+    font-family: "Inter", sans-serif;
+}
+
+.nav-right > p {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.nav-right>*:hover,
+.nav-right > .activeLink {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #161616;
+}
+
+.nav-right>button {
+    color: #FFFFFF;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #FF8C38;
+    cursor: pointer;
+}
+
+/* Main content styling */
+.main-content {
+    flex: 1;
+    /* This makes the content area grow to fill the available space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer styling */
+footer {
+    background-color: #252525;
+    color: #AAAAAA;
+    padding: 1em 1em 1.5em 1em;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Home page styling */
+.home-container {
+    background: url("../src/assets/vanlifeHome.png");
+    background-position: center;
+    background-size: cover;
+    color: #FFFFFF;
+    padding: 4em 2em;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* This makes the home-container grow to fill the available space */
+    overflow: auto;
+    gap: 3em;
+}
+
+.home-container>h2 {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.link-home-btn, .delete-btn,
+.van-details>.rent-btn, .pay-btn,
+.review-form>button {
+    text-decoration: none;
+    text-align: center;
+    background-color: #FF8C38;
+    border-radius: 0.5em;
+    border: none;
+    color: #FFFFFF;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.van-details>.rent-btn{
+    transition: transform 0.3s ease-in-out;
+}
+
+.animate {
+    animation: increaseSize 0.3s ease-in-out;
+}
+
+@keyframes increaseSize {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.025);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* About page styling */
+.about-container {
+    background-color: #FFF7ED;
+    flex: 1;
+}
+
+.about-image-container {
+    background-image: url("../src/assets/vanlifeAbout.png");
+    height: 234px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.about-content-container {
+    padding: 2em;
+}
+
+.about-content-container > h2 {
+    margin-top: 1em;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.about-explore-container {
+    margin: 0em 2em 2em 2em;
+    padding: 2em;
+    background-color: #FFCC8D;
+    border-radius: 0.5em;
+}
+
+.about-explore-container > h2 {
+    font-size: 1.125rem;
+    margin-bottom: 2em;
+}
+
+.link-about-btn {
+    text-decoration: none;
+    background-color: #161616;
+    padding: 1em 1.5em;
+    color: #FFFFFF;
+    border-radius: 0.5em;
+    cursor: pointer;
+    border: none;
+}
+
+/* vans page styling */
+.vans-container {
+    flex: 1;
+    background-color: #FFF7ED;
+    padding: 2em;
+}
+
+.labels-container {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.labels {
+    display: flex;
+    gap: 1em;
+}
+
+.labels > * {
+    cursor: pointer;
+    color: #4D4D4D;
+    background-color: #FFEAD0;
+    border: none;
+    border-radius: 0.5em;
+    font-family: "Inter", sans-serif;
+    padding: 0.5em 0.75em;
+    text-decoration: none;
+}
+
+.simple-selected,
+.labels > .simple:hover, 
+.labels>.simple:focus {
+    background-color: #E17654;
+    color: #FFEAD0;
+}
+
+.rugged-selected,
+.labels>.rugged:hover,
+.labels>.rugged:focus {
+    background-color: #115E59;
+    color: #FFEAD0;
+}
+
+.luxury-selected,
+.labels>.luxury:hover,
+.labels>.luxury:focus {
+    background-color: #161616;
+    color: #FFEAD0;
+}
+
+.clear-filters-container > * {
+    color: #4D4D4D;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
+
+.display-van-grid-container {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+}
+
+.link-grid {
+    text-decoration: none;
+    color: #161616;
+}
+
+.van-in-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.grid-image {
+    width: 100%;
+    height: 80%;
+}
+
+.grid-image > img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+    object-position: center;
+    border-radius: 0.5em;
+}
+
+.grid-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.grid-label, .van-details > .label {
+    color: #FFEAD0;
+    text-transform: capitalize;
+    align-self: flex-start;
+    padding: 0.4em 0.5em;
+    border-radius: 0.5em;
+    margin-top: -1.5em;
+    font-family: "Inter", sans-serif;
+}
+
+.grid-title, .price, .van-details > .title, .van-details > .price {
+    font-weight: bold;
+}
+
+/* each van page styling */
+.van-details-container {
+    flex: 1;
+    background-color: #FFF7ED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+.link-van-details{
+    align-self: flex-start;
+    color: #201F1D;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    gap: 1em;
+}
+
+.van-image {
+    height: 490px;
+    width: 497px;
+}
+
+.van-image > img {
+    height: 100%;
+    width: 100%;
+}
+
+.van-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1.1125em;
+}
+
+.van-details > .label {
+    margin-top: 0;
+    display: inline-block;
+}
+
+.van-details>.price {
+    margin-top: -0.5em;
+}
+
+.van-details>.price>p>span {
+    font-weight: 00;
+}
+
+/* host- navigation bar styling */
+.host-layout-container {
+    flex: 1;
+    background-color: #FFF7ED;
+    padding: 1em 1.5em;
+}
+
+.link-host {
+    display: flex;
+    gap: 1em;
+    padding: 1em 0em;
+}
+
+.link-host > a {
+    text-decoration: none;
+    color: #4D4D4D;
+}
+
+.link-host > a:hover {
+    text-decoration: underline;
+    color: #161616;
+    font-weight: bold;
+}
+
+/* host>dashboard styling */
+.dashboard-income-container {
+    background-color: #FFEAD0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 2em;
+}
+
+.dashboard-income-link-container {
+    display: flex;
+    justify-content: space-between;
+    color: #4D4D4D;
+}
+
+.dashboard-income-link-container>h2{
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.dashboard-income-link-container>h2>span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.dashboard-income-link, .dashboard-review-link,
+.dashboard-vans-link, .dashboard-van-link {
+    text-decoration: none;
+    color: #161616;
+}
+
+.dashboard-vans-link:hover{
+    text-decoration: underline;
+}
+
+.edit-view-container {
+    margin-left: auto;
+}
+
+.edit-view-container>*{
+    padding-right: 1em;
+}
+
+.edit-view-container>*:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.dashboard-review-link-container {
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFDDB2;
+}
+/* host>vans tab styling */
+.host-vans-container {
+    background-color: #FFF7ED;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    gap: 1.5em;
+}
+
+.host-vans-delete-container {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1.5em;
+}
+
+.host-vans-dashboard-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.host-van {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 1em;
+}
+
+.link-host-van, .edit-link-container>* {
+    text-decoration: none;
+}
+
+.edit-link-container {
+    margin-left: auto;
+}
+
+.edit-link-container>* {
+    color: #161616;
+}
+
+.host-van-image, .host-van-image>img {
+    height: 66px;
+    width: 66px;
+}
+
+.host-van-image>img{
+    object-fit: cover;
+    object-position: center;
+}
+
+.host-van-details > h1 {
+    font-size: 1.25rem;
+    color: #161616;
+}
+
+.host-van-details > h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #4D4D4D;
+}
+
+/* host>van>id page styling */
+.host-van-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    /* height: 90%; */
+}
+
+.host-van-details-container{
+    background-color: #FFFFFF;
+    flex: 1;
+    padding: 2em;
+}
+
+.host-van-brief {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.host-van-brief>.host-van-image, .host-van-brief>.host-van-image>img {
+    height: 160px;
+    width: 160px;
+}
+
+.host-van-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.host-van-info>.label{
+    color: #FFEAD0;
+    align-self: flex-start;
+    text-transform: capitalize;
+    padding: 1em 1em;
+    border-radius: 0.5em;
+}
+
+.host-van-info>h1 {
+    font-size: 1.25rem;
+    color: #161616;
+}
+
+.host-van-info>h2 {
+    font-size: 1rem;
+    color: #161616;
+}
+
+.host-van-info>h2>span{
+    font-weight: normal;
+}
+
+.host-van-details-link-container {
+    display: flex;
+    gap: 1em;
+    padding: 1em 0em;
+    align-items: center;
+}
+
+.host-van-details-link-container>a{
+    color: #4D4D4D;
+    text-decoration: none;
+}
+
+.host-van-details-link-container>a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    color: "#161616";
+}
+
+.host-selected-van-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.host-selected-van-details-container > * {
+    font-weight: bold;
+}
+
+.host-selected-van-details-container > * > span {
+    font-weight: normal;
+}
+
+.host-selected-van-pricing-container {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.host-selected-van-pricing-container > span {
+    font-weight: normal;
+}
+
+.host-selected-van-photos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    padding: 1.5em;
+}
+
+.host-selected-van-photos-container>*,
+.host-selected-van-photos-container > * > img {
+    height: 103px;
+    width: 103px;
+}
+
+.host-selected-van-photos-container>*>img {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* host>van>id>edit>id page styling */
+.edit-van-container {
+    display: flex;
+    flex: 1;
+    padding: 2em;
+    min-width: 80%;
+}
+
+.edit-van-container>form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1em;
+    /* width: 100%; */
+}
+
+.edit-van-container>form>div {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.edit-van-container>form>div>label {
+    padding-right: 1em;
+}
+
+.edit-van-container>form>div>textarea {
+    height: 15em;
+    flex: 1;
+    padding: 0.5em;
+}
+
+.edit-van-container>form>div>input[type="text"],
+.edit-van-container>form>div>input[type="number"] {
+    flex: 1;
+    padding: 0.5em;
+}
+
+.edit-van-container>form>div>input[type="file"]{
+    cursor: pointer;
+    width: 184px;
+}
+
+.photo-links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.edit-van-container>form>button {
+    align-self: center;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    border: none;
+    background-color: #FF8C38;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.photo-container {
+    /* flex: 1; */
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #FFCC8D;
+    color: #161616;
+    gap: 2em;
+    padding: 1em 0em;
+    width: 100%;
+}
+
+.photo-container>a, .photo-container>p {
+    text-decoration: underline;
+    color: #161616;
+    cursor: pointer;
+}
+
+.photo-container>p{
+    color: red;
+}
+
+/* host>income page styling */
+.host-income-container,
+.host-reviews-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: #161616;
+}
+
+.host-reviews-container {
+    justify-content: flex-start;
+    align-items: left;
+    /* padding: 2.5em; */
+    width: 80vw;
+}
+
+.host-income-container>h3,
+.income-txns-container>.title>h4,
+.txn>h3,
+.host-reviews-container>.title>h2 {
+    font-size: 1rem;
+    color: #4D4D4D;
+}
+
+.host-income-container>h3>span,
+.income-txns-container>.title>h4>span,
+.host-reviews-container>.title>h2>span {
+    text-decoration: underline;
+}
+
+.income-txns-container>.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.txns-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.txn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em;
+    background-color: #FFFFFF;
+}
+
+.txn>h1 {
+    color: #161616;
+}
+
+.txn>h3 {
+    font-weight: normal;
+}
+
+.income-graph-container {
+    /* width: 480px; */
+    width: 100%;
+}
+
+/* host>reviews page styling */
+.host-reviews-container > .title {
+    display: flex;
+    align-items: center;
+    gap: 1em
+}
+
+.review-details-container > h3 {
+    font-size: 1rem;
+}
+
+.review-detail {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #C7C7C7;
+    padding: 1em 0em;
+}
+
+.graph-row {
+    /* width: 80%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+    gap: 1em;
+}
+
+.graph-row > * {
+    font-weight: normal;
+}
+
+.graph-row > h4 {
+    min-width: 3.5em;
+}
+
+.bar-container {
+    height: 0.5em;
+    flex: 1;
+    background-color: #B9B9B9;
+    border-radius: 0.5em;
+}
+
+.review-rating {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    padding: 1em 0em;
+}
+
+.review-rating > *,
+.dashboard-review-link-container>h2>* {
+    color: #FF8C38;
+    
+}
+
+.review-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.review-info > *{
+    font-weight: normal;
+}
+
+.review-info > h4 > span {
+    color: #8C8C8C;
+}
+
+/* not found page styling */
+.not-found-container {
+    flex: 1;
+    background-color: #FFF7ED;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.not-found-container>h1{
+    margin-top: -3em;
+    color: #161616;
+}
+
+.not-found-container > a{
+    text-decoration: none;
+    background-color: #161616;
+    color: #FFFFFF;
+    width: 50%;
+    text-align: center;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+/* login page styling */
+.login-container {
+    flex: 1;
+    background-color: #FFF7ED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    padding: 2em;
+}
+
+.navigate-message, .login-error-message {
+    color: red;
+    font-size: 1rem;
+}
+
+.login-container > form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.login-container > form >* {
+    padding: 1em 0.5em;
+}
+
+.login-container > form > input {
+    border: 1px solid #D1D5DB;
+    color: #4D4D4D;
+}
+
+.login-container>form>input:first-child{
+    border-bottom: none;
+}
+
+.login-container > form > button {
+    background-color: #FF8C38;
+    border: none;
+    border-radius: 0.5em;
+    color: #FFFFFF;
+    font-size: 1.0125rem;
+    cursor: pointer;
+    margin-top: 2em;
+}
+
+/* cart page */
+.cart-container {
+    flex: 1;
+    background-color: #FFF7ED;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    padding-top: 3em;
+    gap: 2em;
+}
+
+.cart-container>table{
+    width: 90%;
+    border: 1px solid black;
+
+}
+
+tr {
+    display: grid;
+    /* width: 80%; */
+    /* grid-template-columns: repeat(1, 50%) repeat(2, auto); */
+    grid-template-columns: 50% 30% 20%;
+}
+
+th, td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+td>img {
+    height: 6em;
+    width: 6em;
+}
+
+.cart-item-name, .cart-item-qty, .cart-item-price {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    gap: 1em;
+}
+
+.cart-item-qty, .cart-item-price {
+    justify-content: center;
+}
+
+.plus, .minus {
+    cursor: pointer;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.review-form > * {
+    padding: 0.5em;
+}
+
+.review-form > textarea {
+    resize: none;
+}
