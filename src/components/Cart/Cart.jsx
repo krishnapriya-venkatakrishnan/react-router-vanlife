@@ -123,7 +123,6 @@ export default function Cart(){
             console.log(err)
         } finally {
             setCartData(null)
-            window.location.reload()
         }
     }
 

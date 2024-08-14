@@ -35,7 +35,8 @@ export default function Login(){
             const strData = JSON.stringify(data)
             localStorage.setItem("loggedInUser", strData)
             login({
-                name: JSON.parse(strData).name
+                name: JSON.parse(strData).name,
+                email: JSON.parse(strData).email,
             })
 
             const pathName = location.state?.redirectTo || "/host"

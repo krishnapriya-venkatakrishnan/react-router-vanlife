@@ -113,7 +113,6 @@ export default function DisplaySelectedVan(){
         }
     }
 
-
     const displayVanDetail = () => {
         const { description, imageUrl, name, price, type, hostId, rentedBy } = vanDetail
         return (
@@ -139,7 +138,9 @@ export default function DisplaySelectedVan(){
                     <button onClick={() => rentVan(id)} className="rent-btn">
                         Rent this van
                     </button>
+                    
                     {
+                        
                         (user && rentedBy?.length) ? 
                             rentedBy.includes(user.email) ? 
                                 <>
