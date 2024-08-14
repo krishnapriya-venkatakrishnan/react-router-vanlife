@@ -13,7 +13,7 @@ export default function Dashboard(){
     useEffect(()=> {
         async function getData(){
             try {
-                const data = await getHostDetails("123")
+                const data = await getHostDetails()
                 setHostData(data)
             } catch(err){
                 setError(err)

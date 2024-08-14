@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FiUserPlus, FiUserMinus } from "react-icons/fi";
 import { AuthContext } from "../Layout/Layout";
 
 export default function Header(){
@@ -13,7 +13,11 @@ export default function Header(){
     
     return (
         <header>
+            {
+                user?.name && <div id="logged-in-user">{`Hi ${user.name}!`}</div>
+            }
             <nav>
+                
                 <div className="nav-left">
                     <Link className="home-link" to="/">#VANLIFE</Link>
                 </div>
@@ -31,13 +35,11 @@ export default function Header(){
                         Cart
                     </NavLink>
                     <Link to="/login">
-                        <FaRegUserCircle />
+                        <button className="log-in-out-btn"><FiUserPlus  /></button>
                     </Link>
+                    
                     {
-                        user?.name && <p>{`Hi ${user.name}!`}</p>
-                    }
-                    {
-                        user?.name && <button onClick={clearStorage}>Log out</button>
+                        user?.name && <button className="log-in-out-btn" onClick={clearStorage}><FiUserMinus  /></button>
                     }
                 </div>
             </nav>

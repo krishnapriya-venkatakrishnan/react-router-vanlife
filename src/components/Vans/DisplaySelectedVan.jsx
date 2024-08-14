@@ -140,7 +140,7 @@ export default function DisplaySelectedVan(){
                         Rent this van
                     </button>
                     {
-                        rentedBy?.length ? 
+                        (user && rentedBy?.length) ? 
                             rentedBy.includes(user.email) ? 
                                 <>
                                 <div className="title">

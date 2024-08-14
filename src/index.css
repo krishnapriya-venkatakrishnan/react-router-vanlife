@@ -16,6 +16,14 @@ body, #root {
     flex-direction: column;
 }
 
+#logged-in-user {
+    text-align: right;
+    padding: 0.5em 1em;
+    background-color: #FFF7ED;
+    font-weight: bold;
+    font-style: italic;
+}
+
 /* Navigation bar styling */
 nav {
     background-color: #FFF7ED;
@@ -58,9 +66,9 @@ nav {
     color: #161616;
 }
 
-.nav-right>button {
+.log-in-out-btn {
     color: #FFFFFF;
-    padding: 0.5em 1em;
+    padding: 0.5em;
     border: none;
     border-radius: 0.5em;
     background-color: #FF8C38;
@@ -106,7 +114,8 @@ footer {
 
 .link-home-btn, .delete-btn,
 .van-details>.rent-btn, .pay-btn,
-.review-form>button {
+.review-form>button,
+.dashboard-add-vans-link {
     text-decoration: none;
     text-align: center;
     background-color: #FF8C38;
@@ -115,6 +124,19 @@ footer {
     color: #FFFFFF;
     padding: 1em;
     cursor: pointer;
+}
+
+.dashboard-add-vans-link,
+.delete-btn {
+    padding: 0.25em;
+}
+
+.delete-btn{
+    background-color: rgba(237, 74, 74, 0.823);
+}
+
+.dashboard-add-vans-link{
+    background-color: rgba(6, 147, 6, 0.632);
 }
 
 .van-details>.rent-btn{
@@ -323,8 +345,8 @@ footer {
 }
 
 .van-image {
-    height: 490px;
-    width: 497px;
+    height: 420px;
+    width: 420px;
 }
 
 .van-image > img {
@@ -403,12 +425,16 @@ footer {
 
 .dashboard-income-link, .dashboard-review-link,
 .dashboard-vans-link, .dashboard-van-link {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: #161616;
 }
 
+.dashboard-income-link:hover{
+    font-weight: bold;
+}
+
 .dashboard-vans-link:hover{
-    text-decoration: underline;
+    font-weight: bold;
 }
 
 .edit-view-container {
@@ -934,6 +960,11 @@ td>img {
     align-items: center;
     padding: 1em;
     gap: 1em;
+}
+
+.cart-item-name {
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .cart-item-qty, .cart-item-price {

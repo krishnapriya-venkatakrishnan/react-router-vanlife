@@ -10,10 +10,10 @@ export default function Cart(){
     useEffect(() => {
         
         let storageData = JSON.parse(localStorage.getItem("loggedInUser"))
-        let cartDetails = storageData.cartDetails
+        let cartDetails = storageData?.cartDetails
     
         let idArray = [], imageArray = [],  priceArray = [], qtyArray = [], nameArray = [], indPriceArray = [], hostIDArray = []
-        cartDetails.forEach(data => {
+        cartDetails?.forEach(data => {
             if (!idArray.includes(data.id)){
                 idArray.push(data.id)
                 imageArray.push(data.imageUrl.url)
@@ -123,6 +123,7 @@ export default function Cart(){
             console.log(err)
         } finally {
             setCartData(null)
+            window.location.reload()
         }
     }
 
@@ -133,7 +134,6 @@ export default function Cart(){
         localStorage.setItem("loggedInUser", JSON.stringify(storageData))
         
         updateDetails()
-
         
     }
 
@@ -162,9 +162,9 @@ export default function Cart(){
         if (arr?.length)
             return arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
     }
-        
+    
     const total = calculateTotal(cartData?.price)
-    if (cartData?.price && !total) {
+    if (cartData?.price.length > 0 && !total) {
         let storageData = JSON.parse(localStorage.getItem("loggedInUser"))
         storageData.cartDetails = []
         localStorage.setItem("loggedInUser", JSON.stringify(storageData))

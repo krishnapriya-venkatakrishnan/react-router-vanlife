@@ -6,7 +6,7 @@ import { AuthContext } from "../Layout/Layout";
 export default function Login(){
     
     const {login} = useContext(AuthContext)
-
+    
     const location = useLocation()
     const navigate = useNavigate()
     

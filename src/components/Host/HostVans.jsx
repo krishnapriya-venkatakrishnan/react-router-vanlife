@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getHostVans, deleteVanDetails } from "../../api";
+import { FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
+
 
 export default function HostVans({ from }){
 
@@ -44,7 +46,7 @@ export default function HostVans({ from }){
                 </div>                
             </div>
         </Link>
-        <button onClick={() => deleteVan(van.id)} className="delete-btn">Delete Van</button>    
+        <button onClick={() => deleteVan(van.id)} className="delete-btn"><FaCircleMinus /></button>    
         </div>)
     })
 
@@ -87,7 +89,7 @@ export default function HostVans({ from }){
                 <h1>Your listed vans</h1>
                 {
                     from === "dashboard" ? <Link className="dashboard-vans-link" to="./vans">View all</Link> :
-                    <Link className="dashboard-vans-link" to="./addVan">Add van</Link>
+                    <Link className="dashboard-add-vans-link" to="./addVan"><FaCirclePlus /></Link>
                 }
 
             </div>

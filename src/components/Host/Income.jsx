@@ -6,7 +6,7 @@ export default function Income(){
 
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
-    const [incomeData, setIncomeData] = useState([])
+    const [incomeData, setIncomeData] = useState(null)
     const currMonth = (new Date().getMonth() + 1)
     
     useEffect(()=> {
@@ -33,7 +33,7 @@ export default function Income(){
         const { monthlyTxnAmount } = incomeData
         const currYear = new Date().getFullYear()
         let currYearTxns  = [0]
-        monthlyTxnAmount.forEach(item => {
+        monthlyTxnAmount?.forEach(item => {
             if (item.year == currYear){
                 currYearTxns.push(...item.month)
             }
@@ -116,9 +116,10 @@ export default function Income(){
         }
         return displayArray
     }
-
+    
     return (
         <div className="host-income-container">
+            {incomeData.currentMonthTxnAmount ? <>
             <h2>Income</h2>
             <h3>Total transaction amount- ${incomeData.totalTxnAmount}</h3>
             <h3>Current month transaction amount- <span>${incomeData.currentMonthTxnAmount}</span></h3>
@@ -127,13 +128,13 @@ export default function Income(){
             </div>
             <div className="income-txns-container">
                 <div className="title">
-                    <h3>Your transactions {`(${incomeData.txnDetails.length})`}</h3>
+                    <h3>Your transactions {`(${incomeData?.txnDetails?.length || '0'})`}</h3>
                     <h4>All transactions</h4>
                 </div>
                 <div className="txns-container">
                     {incomeData?.txnDetails?.length && displayTransactions()}
                 </div>
-            </div>
+            </div></> : <h2>No transactions!</h2>}
         </div>
     )
 }
