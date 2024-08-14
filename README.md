@@ -11,6 +11,9 @@ Displayed using ReacTree
 
 ![Tree2](https://github.com/user-attachments/assets/49ccfc1d-31b3-4335-9c74-0f616b86547f)
 
+### env.js
+- Firestore configuration are to be set here.
+
 ### Components and its usage
 - App: This component uses react-router-dom, to enable routing among different links.
     - BrowserRouter: Top-level component that wraps around your application to enable React Router.
