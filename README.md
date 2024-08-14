@@ -121,3 +121,10 @@ Displayed using ReacTree
 ### api.jsx
   - API calls to firestore are handled here.
 
+### Live Demo
+*Make sure to set env.js*
+*Log in with username b@b.com and password as p123 to see the host details including the transactions*
+*To post a review, make sure to rent the van first*
+*Once paid, the owner of the van's host>income gets updated*
+
+(https://66bc95639028ae7382537252--famous-fenglisu-54cca7.netlify.app/)
